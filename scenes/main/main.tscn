@@ -1,0 +1,39 @@
+[gd_scene format=3 uid="uid://bop874pirw2ph"]
+
+[ext_resource type="PackedScene" uid="uid://c8efj3g3k05w8" path="res://scenes/player/Player.tscn" id="1_o5qli"]
+[ext_resource type="PackedScene" uid="uid://b0pxr8gemflqm" path="res://scenes/player/Enemy.tscn" id="2_iuonh"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o5qli"]
+size = Vector2(1000, 70)
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_iuonh"]
+size = Vector2(50, 500)
+
+[node name="Main" type="Node2D" unique_id=529036676]
+
+[node name="Ground" type="StaticBody2D" parent="." unique_id=688124641]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground" unique_id=97156858]
+position = Vector2(592, 575)
+shape = SubResource("RectangleShape2D_o5qli")
+
+[node name="Ground2" type="StaticBody2D" parent="." unique_id=873858536]
+constant_linear_velocity = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground2" unique_id=2085521963]
+position = Vector2(65, 362)
+shape = SubResource("RectangleShape2D_iuonh")
+
+[node name="Ground3" type="StaticBody2D" parent="." unique_id=2047239109]
+constant_linear_velocity = Vector2(10, 10)
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="Ground3" unique_id=201819543]
+position = Vector2(1117, 364)
+shape = SubResource("RectangleShape2D_iuonh")
+
+[node name="Enemy" parent="." unique_id=1797087611 instance=ExtResource("2_iuonh")]
+position = Vector2(722, 343)
+is_player = false
+
+[node name="Player" parent="." unique_id=1885888085 instance=ExtResource("1_o5qli")]
+position = Vector2(409, 350)

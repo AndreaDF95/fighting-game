@@ -1,0 +1,28 @@
+[gd_scene format=3 uid="uid://c8efj3g3k05w8"]
+
+[ext_resource type="Script" uid="uid://ba83jkp1wrn4" path="res://scenes/player/player.gd" id="1_gfjak"]
+[ext_resource type="Texture2D" uid="uid://cxgcbskerurke" path="res://icon.svg" id="2_4kuee"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_o8nba"]
+
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_v6fml"]
+size = Vector2(72.5, 49)
+
+[node name="Player" type="CharacterBody2D" unique_id=1797087611]
+script = ExtResource("1_gfjak")
+
+[node name="Sprite2D" type="Sprite2D" parent="." unique_id=171259226]
+texture = ExtResource("2_4kuee")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1840644222]
+position = Vector2(0, 47)
+shape = SubResource("RectangleShape2D_o8nba")
+
+[node name="AttackArea" type="Area2D" parent="." unique_id=1563985093]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=545507291]
+position = Vector2(108, 0)
+shape = SubResource("RectangleShape2D_v6fml")
+disabled = true
+
+[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]
