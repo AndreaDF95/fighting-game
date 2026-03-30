@@ -24,6 +24,8 @@ var is_hit := false
 # PLAYER FLAG
 # -------------------------
 @export var is_player := true
+@export var max_health := 100
+var health := 100
 
 # -------------------------
 # NODI (SAFE)
@@ -36,6 +38,8 @@ var is_hit := false
 # READY
 # -------------------------
 func _ready():
+	health = max_health
+	
 	if attack_shape:
 		attack_shape.disabled = true
 
@@ -68,6 +72,13 @@ func _on_attack_area_body_entered(body):
 	if body.has_method("take_damage"):
 		body.take_damage(global_position)
 
+#--------------------------
+# MORTE
+#--------------------------
+func die():
+	print(name, "DEAD")
+
+	queue_free()
 
 # -------------------------
 # PRENDERE DANNO
@@ -75,21 +86,26 @@ func _on_attack_area_body_entered(body):
 func take_damage(from_position: Vector2):
 	is_hit = true
 
+	# 👇 DIMINUISCI VITA
+	health -= 10
+	print("HP:", health)
+
 	# knockback
 	var direction = sign(global_position.x - from_position.x)
 	velocity.x = direction * knockback_force
 	velocity.y = -150
 
-	# 💥 FLASH
-	sprite.modulate = Color(1, 0.3, 0.3)  # rosso
-
+	# flash
+	sprite.modulate = Color(1, 0.3, 0.3)
 	await get_tree().create_timer(0.1).timeout
-
-	sprite.modulate = Color(1, 1, 1)  # normale
+	sprite.modulate = Color(1, 1, 1)
 
 	await get_tree().create_timer(hit_duration).timeout
-
 	is_hit = false
+
+	# 👇 MORTE
+	if health <= 0:
+		die()
 
 
 # -------------------------
