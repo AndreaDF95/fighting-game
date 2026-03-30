@@ -4,6 +4,7 @@
 [ext_resource type="Texture2D" uid="uid://cxgcbskerurke" path="res://icon.svg" id="2_4kuee"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8nba"]
+size = Vector2(111, 116)
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_v6fml"]
 size = Vector2(72.5, 49)
@@ -15,7 +16,7 @@ script = ExtResource("1_gfjak")
 texture = ExtResource("2_4kuee")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="." unique_id=1840644222]
-position = Vector2(0, 47)
+position = Vector2(1.5, -1)
 shape = SubResource("RectangleShape2D_o8nba")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1563985093]
