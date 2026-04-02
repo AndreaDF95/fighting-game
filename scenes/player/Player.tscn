@@ -10,6 +10,7 @@ size = Vector2(111, 116)
 size = Vector2(72.5, 49)
 
 [node name="Player" type="CharacterBody2D" unique_id=1797087611]
+collision_layer = 2
 script = ExtResource("1_gfjak")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=171259226]
@@ -20,8 +21,11 @@ position = Vector2(1.5, -1)
 shape = SubResource("RectangleShape2D_o8nba")
 
 [node name="AttackArea" type="Area2D" parent="." unique_id=1563985093]
+collision_layer = 2
+collision_mask = 4
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=545507291]
+light_mask = 4
 position = Vector2(108, 0)
 shape = SubResource("RectangleShape2D_v6fml")
 disabled = true

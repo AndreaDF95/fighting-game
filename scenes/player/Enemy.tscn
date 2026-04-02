@@ -1,6 +1,6 @@
 [gd_scene format=3 uid="uid://b0pxr8gemflqm"]
 
-[ext_resource type="Script" uid="uid://ba83jkp1wrn4" path="res://scenes/player/player.gd" id="1_ujo5d"]
+[ext_resource type="Script" uid="uid://dtvl60bey0ack" path="res://scenes/player/enemy.gd" id="1_ujo5d"]
 [ext_resource type="Texture2D" uid="uid://cxgcbskerurke" path="res://icon.svg" id="2_e4lb0"]
 
 [sub_resource type="RectangleShape2D" id="RectangleShape2D_o8nba"]
@@ -10,6 +10,7 @@ size = Vector2(114, 115)
 size = Vector2(72.5, 49)
 
 [node name="Enemy" type="CharacterBody2D" unique_id=1797087611]
+collision_layer = 4
 script = ExtResource("1_ujo5d")
 
 [node name="Sprite2D" type="Sprite2D" parent="." unique_id=171259226]
@@ -19,11 +20,11 @@ texture = ExtResource("2_e4lb0")
 position = Vector2(0, -0.5)
 shape = SubResource("RectangleShape2D_o8nba")
 
-[node name="AttackArea" type="Area2D" parent="." unique_id=810489533]
+[node name="AttackArea" type="Area2D" parent="." unique_id=339035754]
+collision_layer = 2
+collision_mask = 4
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1960891956]
+[node name="CollisionShape2D" type="CollisionShape2D" parent="AttackArea" unique_id=1425987306]
 position = Vector2(-106, 0)
 shape = SubResource("RectangleShape2D_ujo5d")
 disabled = true
-
-[connection signal="body_entered" from="AttackArea" to="." method="_on_attack_area_body_entered"]

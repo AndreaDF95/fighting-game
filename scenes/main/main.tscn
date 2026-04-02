@@ -37,7 +37,6 @@ shape = SubResource("RectangleShape2D_iuonh")
 
 [node name="Enemy" parent="." unique_id=1797087611 instance=ExtResource("2_iuonh")]
 position = Vector2(722, 343)
-is_player = false
 
 [node name="Player" parent="." unique_id=1885888085 instance=ExtResource("1_o5qli")]
 position = Vector2(409, 350)
@@ -53,24 +52,13 @@ grow_horizontal = 2
 grow_vertical = 2
 theme = SubResource("Theme_k2fmo")
 
-[node name="EnemyHealthDamage" type="ProgressBar" parent="UI/HUD" unique_id=1026022302]
-z_index = 1
+[node name="PlayerHealth" type="ProgressBar" parent="UI/HUD" unique_id=1969770859]
 layout_mode = 0
-offset_left = 837.0
+offset_left = 45.0
 offset_top = 20.0
-offset_right = 1137.0
+offset_right = 345.0
 offset_bottom = 47.0
 value = 100.0
-fill_mode = 1
-
-[node name="EnemyHealth" type="ProgressBar" parent="UI/HUD" unique_id=1406381733]
-layout_mode = 0
-offset_left = 837.0
-offset_top = 20.0
-offset_right = 1137.0
-offset_bottom = 47.0
-value = 100.0
-fill_mode = 1
 
 [node name="PlayerHealthDamage" type="ProgressBar" parent="UI/HUD" unique_id=261974405]
 z_index = 1
@@ -81,13 +69,24 @@ offset_right = 345.0
 offset_bottom = 47.0
 value = 100.0
 
-[node name="PlayerHealth" type="ProgressBar" parent="UI/HUD" unique_id=1969770859]
+[node name="EnemyHealth" type="ProgressBar" parent="UI/HUD" unique_id=1406381733]
 layout_mode = 0
-offset_left = 45.0
+offset_left = 837.0
 offset_top = 20.0
-offset_right = 345.0
+offset_right = 1137.0
 offset_bottom = 47.0
 value = 100.0
+fill_mode = 1
+
+[node name="EnemyHealthDamage" type="ProgressBar" parent="UI/HUD" unique_id=1026022302]
+z_index = 1
+layout_mode = 0
+offset_left = 837.0
+offset_top = 20.0
+offset_right = 1137.0
+offset_bottom = 47.0
+value = 100.0
+fill_mode = 1
 
 [node name="KOLabel" type="Label" parent="UI/HUD" unique_id=776551111]
 layout_mode = 1
