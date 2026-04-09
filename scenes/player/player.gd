@@ -19,8 +19,16 @@ var hit_targets = []
 var is_hit = false
 var hit_duration = 0.2
 var knockback_force = 250
+var can_move = true
 
 func _physics_process(delta):
+	
+	if not can_move:
+		if not is_on_floor():
+			velocity.y += gravity * delta
+
+		move_and_slide()
+		return
 	
 	if is_hit:
 		velocity.y += gravity * delta
@@ -109,6 +117,22 @@ func take_damage(damage: int, from_position: Vector2):
 
 	modulate = Color(1,1,1)
 	is_hit = false
+	
+	if health <= 0:
+		die()
+
+func die():
+	print("PLAYER KO")
+
+	is_hit = true
+	velocity = Vector2.ZERO
+
+	# chiama il main per reset
+	get_parent().on_player_dead()
+	
+	Engine.time_scale = 0.2
+	await get_tree().create_timer(0.2).timeout
+	Engine.time_scale = 1
 
 func _on_attack_area_body_entered(body):
 
@@ -122,5 +146,8 @@ func _on_attack_area_body_entered(body):
 	if body.has_method("take_damage"):
 		var damage = 10 + (combo_step - 1) * 5
 		body.take_damage(damage, global_position)
+		var spark = preload("res://scenes/HitSpark.tscn").instantiate()
+		spark.global_position = body.global_position
+		get_tree().current_scene.add_child(spark)
 
 		print("COLPITO QUALCOSA")

@@ -1,0 +1,8 @@
+[gd_scene format=3 uid="uid://bihp56nr126x2"]
+
+[node name="HitSpark" type="Node2D" unique_id=1114083931]
+position = Vector2(147, 90)
+
+[node name="Node2D" type="Node2D" parent="." unique_id=1522545769]
+position = Vector2(50, 50)
+scale = Vector2(2, 2)

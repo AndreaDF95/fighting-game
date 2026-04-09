@@ -104,3 +104,57 @@ grow_vertical = 2
 scale = Vector2(2, 2)
 theme_override_font_sizes/font_size = 50
 text = "KO"
+
+[node name="EnemyRounds" type="HBoxContainer" parent="UI/HUD" unique_id=385366032]
+layout_mode = 0
+offset_left = 962.0
+offset_top = 56.0
+offset_right = 1006.0
+offset_bottom = 95.0
+
+[node name="Label4" type="Label" parent="UI/HUD/EnemyRounds" unique_id=564803290]
+layout_mode = 2
+text = "●"
+
+[node name="Label3" type="Label" parent="UI/HUD/EnemyRounds" unique_id=1368460898]
+layout_mode = 2
+text = "●"
+
+[node name="Label5" type="Label" parent="UI/HUD/EnemyRounds" unique_id=883569294]
+layout_mode = 2
+text = "●"
+
+[node name="PlayerRounds" type="HBoxContainer" parent="UI/HUD" unique_id=1609553158]
+layout_mode = 0
+offset_left = 172.0
+offset_top = 54.0
+offset_right = 231.0
+offset_bottom = 103.0
+
+[node name="Label3" type="Label" parent="UI/HUD/PlayerRounds" unique_id=893423164]
+layout_mode = 2
+text = "●"
+
+[node name="Label4" type="Label" parent="UI/HUD/PlayerRounds" unique_id=764889662]
+layout_mode = 2
+text = "●"
+
+[node name="Label5" type="Label" parent="UI/HUD/PlayerRounds" unique_id=485234299]
+layout_mode = 2
+text = "●"
+
+[node name="RoundLabel" type="Label" parent="UI/HUD" unique_id=672109476]
+layout_mode = 1
+anchors_preset = 8
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -113.0
+offset_top = -34.5
+offset_right = 113.0
+offset_bottom = 34.5
+grow_horizontal = 2
+grow_vertical = 2
+theme_override_font_sizes/font_size = 50
+text = "ROUND 1"
